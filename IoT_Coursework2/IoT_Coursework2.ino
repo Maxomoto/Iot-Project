@@ -3,8 +3,8 @@
 #include <PubSubClient.h>
 #include "DHT.h"
 
-const char* ssid = "TALKTALK013DA3";
-const char* password =  "CM36XCQH";
+const char* ssid = "";//WiFi SSID
+const char* password =  "";//WiFi password
 const char* mqttServer = "192.168.1.10";
 const int mqttPort = 1883;
 const char* mqttUser = "student";
