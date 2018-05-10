@@ -2,8 +2,8 @@
 #include <PubSubClient.h>
 #include <ESP8266WiFi.h>
 
-#define WIFI_AP "TALKTALK013DA3"
-#define WIFI_PASSWORD "CM36XCQH"
+#define WIFI_AP ""//WiFi SSID
+#define WIFI_PASSWORD ""//WiFi password
 
 #define TOKEN "ESP8266_DEMO_TOKEN"
 
@@ -13,7 +13,7 @@
 #define DHTPIN2 D3
 #define DHTTYPE2 DHT11
 
-char server[] = "192.168.1.10";
+char server[] = "192.168.1.10";//IoT Hub address
 
 WiFiClient wifiClient;
 
