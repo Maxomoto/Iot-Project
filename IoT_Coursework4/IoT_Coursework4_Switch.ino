@@ -2,8 +2,8 @@
 #include <PubSubClient.h>
 #include <ESP8266WiFi.h>
 
-#define WIFI_AP "TALKTALK013DA3"//WiFi SSID
-#define WIFI_PASSWORD "CM36XCQH"//WiFi password
+#define WIFI_AP ""//WiFi SSID
+#define WIFI_PASSWORD ""//WiFi password
 
 #define TOKEN "ESP8266_DEMO_TOKEN"
 
