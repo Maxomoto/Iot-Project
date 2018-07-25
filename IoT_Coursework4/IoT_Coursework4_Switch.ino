@@ -2,10 +2,15 @@
 #include <PubSubClient.h>
 #include <ESP8266WiFi.h>
 
-#define WIFI_AP ""//WiFi SSID
-#define WIFI_PASSWORD ""//WiFi password
+//WiFi
+#define WIFI_AP "TALKTALK013DA3"//WiFi SSID
+#define WIFI_PASSWORD "CM36XCQH"//WiFi password
+const char* mqttServer = "192.168.1.10";
+const int mqttPort = 1883;
+const char* mqttUser = "student";
+const char* mqttPassword = "P@ssw0rd";
 
-#define TOKEN "ESP8266_DEMO_TOKEN"
+//#define TOKEN "ESP8266_DEMO_TOKEN"
 
 // DHT
 #define DHTPIN D2
@@ -32,7 +37,7 @@ void setup(){
   pinMode(D8, OUTPUT);
   delay(10);
   InitWiFi();
-  client.setServer( server, 1883 );
+  client.setServer( mqttServer, mqttPort );
   client.setCallback(callback);
   lastSend = 0; 
 }
@@ -170,8 +175,16 @@ void callback(char* topic, byte* payload_switch, unsigned int length) {
   } else {
     digitalWrite(D8, LOW);// Turn the LED off
     fan = "Off";
-    String Fan = String(fan);
   }
+  
+  String Fan = String(fan);
+  
+  String payload_fan = "Fan :"; payload_fan += Fan;
+  
+  char attributes_fan[100];
+  payload_fan.toCharArray( attributes_fan, 100 );
+  client.publish( "fan", attributes_fan );
+  Serial.println( attributes_fan );
 }
 
 
@@ -202,7 +215,7 @@ void reconnect() {
     }
     Serial.print("Connecting to ThingsBoard node ...");
     // Attempt to connect (clientId, username, password)
-    if ( client.connect("ESP8266 Device", TOKEN, NULL) ) {
+    if ( client.connect("ESP8266 Device", mqttUser, mqttPassword) ) {
       Serial.println( "[DONE]" );
       client.subscribe("switch");
     } else {
