@@ -3,12 +3,12 @@
 #include <ESP8266WiFi.h>
 
 //WiFi
-#define WIFI_AP "TALKTALK013DA3"//WiFi SSID
-#define WIFI_PASSWORD "CM36XCQH"//WiFi password
-const char* mqttServer = "192.168.1.10";
-const int mqttPort = 1883;
-const char* mqttUser = "student";
-const char* mqttPassword = "P@ssw0rd";
+#define WIFI_AP ""//WiFi SSID
+#define WIFI_PASSWORD ""//WiFi password
+const char* mqttServer = "";//Server IP for connecting to MQTT broker
+const int mqttPort = ;//Port number for MQTT
+const char* mqttUser = "";//User name for MQTT
+const char* mqttPassword = "";//User password for MQTT
 
 //#define TOKEN "ESP8266_DEMO_TOKEN"
 
